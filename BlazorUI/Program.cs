@@ -13,9 +13,18 @@ namespace BlazorUI
 {
     public class Program
     {
-        public static void Main(string[] args)
+        private static IHost _host;
+
+        public static void RunServer(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            _host = CreateHostBuilder(args).Build();
+            _host.Start();
+        }
+
+        public static async Task StopServer()
+        {
+            _host.Dispose();
+            _host = null;
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

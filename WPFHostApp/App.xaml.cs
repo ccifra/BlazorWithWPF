@@ -13,5 +13,16 @@ namespace WPFHostApp
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            BlazorUI.Program.RunServer(Array.Empty<string>());
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            BlazorUI.Program.StopServer();
+            base.OnExit(e);
+        }
     }
 }
