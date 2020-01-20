@@ -21,7 +21,7 @@ namespace BlazorUI
             _host.Start();
         }
 
-        public static async Task StopServer()
+        public static void StopServer()
         {
             _host.Dispose();
             _host = null;
