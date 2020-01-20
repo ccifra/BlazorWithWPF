@@ -6,8 +6,22 @@
   xmlns:local="clr-namespace:WPFHostApp"
   xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
   mc:Ignorable="d"
-  Title="MainWindow" Height="450" Width="800">
+  Title="WPF With Blazor" Height="450" Width="800">
   <Grid>
-    <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://localhost:5000/counter" />
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid Background="Azure">
+      <TextBlock Text="WPF UI" FontSize="32" HorizontalAlignment="Center" Margin="10,10,10,10" />
+      <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,134,0,0" Text="Current Count:" FontSize="18" />
+      <TextBlock x:Name ="_counterText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="132,134,0,0" Text="{Binding Count}" FontSize="18" />
+      <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,175,0,0" Click="Button_Click">
+        <TextBlock Text=" Increment " FontSize="22" />
+      </Button>
+    </Grid>
+    <Grid Grid.Column="1" Background="AliceBlue">
+      <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://localhost:5000/counter" />
+    </Grid>
   </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazorUI.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace WPFHostApp
         public MainWindow()
         {
             InitializeComponent();
+
+            _counterText.DataContext = CounterService.Instance;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CounterService.Instance.Count += 1;
         }
     }
 }
