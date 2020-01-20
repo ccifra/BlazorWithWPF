@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29521.150
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUI", "BlazorUI\BlazorUI.csproj", "{10A88947-044C-4CB7-9ACE-1D00B0D1BB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFHostApp", "WPFHostApp\WPFHostApp.csproj", "{5136118B-82C9-4559-A8DC-192BE9B2706F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10A88947-044C-4CB7-9ACE-1D00B0D1BB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A88947-044C-4CB7-9ACE-1D00B0D1BB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A88947-044C-4CB7-9ACE-1D00B0D1BB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A88947-044C-4CB7-9ACE-1D00B0D1BB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5136118B-82C9-4559-A8DC-192BE9B2706F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5136118B-82C9-4559-A8DC-192BE9B2706F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5136118B-82C9-4559-A8DC-192BE9B2706F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5136118B-82C9-4559-A8DC-192BE9B2706F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44728813-FE7C-4264-9362-64EC254E2BBA}
+	EndGlobalSection
+EndGlobal
