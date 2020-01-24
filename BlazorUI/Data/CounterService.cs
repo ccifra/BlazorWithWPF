@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 namespace BlazorUI.Data
 {
@@ -11,7 +7,15 @@ namespace BlazorUI.Data
     {
         private int _count;
 
-        public static CounterService Instance { get; } = new CounterService();
+        public CounterService()
+        {
+            if (DefaultService == null)
+            {
+                DefaultService = this;
+            }
+        }
+
+        public static CounterService DefaultService { get; set; }
 
         public int Count
         {

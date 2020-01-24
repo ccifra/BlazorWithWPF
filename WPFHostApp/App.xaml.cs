@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace WPFHostApp
@@ -16,12 +11,12 @@ namespace WPFHostApp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            BlazorUI.Program.RunServer(Array.Empty<string>());
+            BlazorUI.ServerManager.RunServer(Array.Empty<string>());
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            BlazorUI.Program.StopServer();
+            BlazorUI.ServerManager.StopServer();
             base.OnExit(e);
         }
     }

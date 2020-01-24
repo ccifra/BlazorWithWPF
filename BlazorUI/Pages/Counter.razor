@@ -1,33 +1,43 @@
 ﻿@page "/counter"
+@page "/counter/{CounterServiceCookie:int}"
 
 @using BlazorUI.Data;
 @using System.ComponentModel;
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    int currentCount = 0;
+    CounterService _counterService;
+    int _currentCount;
+
+    [Parameter]
+    public int CounterServiceCookie { get; set; }
 
     void IncrementCount()
     {
-        currentCount++;
-        CounterService.Instance.Count = currentCount;
+        _currentCount++;
+        _counterService.Count = _currentCount;
     }
 
     protected override void OnInitialized()
     {
-        CounterService.Instance.PropertyChanged += OnCountChanged;
+        _counterService = CookieManager.Instance.GetCookiedObject<CounterService>(CounterServiceCookie);
+        if (_counterService == null)
+        {
+            _counterService = CounterService.DefaultService;
+        }
+        _counterService.PropertyChanged += OnCountChanged;
     }
 
     private void OnCountChanged(object sender, PropertyChangedEventArgs e)
     {
-        if (currentCount != CounterService.Instance.Count)
+        if (_currentCount != _counterService.Count)
         {
-            currentCount = CounterService.Instance.Count;
+            _currentCount = _counterService.Count;
             this.InvokeAsync(() => this.StateHasChanged());
         }
     }

@@ -21,7 +21,7 @@
       </Button>
     </Grid>
     <Grid Grid.Column="1" Background="AliceBlue">
-      <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://localhost:5000/counter" />
+      <wpf:ChromiumWebBrowser x:Name="_browser"/>
     </Grid>
   </Grid>
 </Window>

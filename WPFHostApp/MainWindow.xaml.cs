@@ -1,18 +1,6 @@
-﻿using BlazorUI.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlazorUI;
+using BlazorUI.Data;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPFHostApp
 {
@@ -21,16 +9,20 @@ namespace WPFHostApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CounterService _counterService;
+
         public MainWindow()
         {
             InitializeComponent();
-
-            _counterText.DataContext = CounterService.Instance;
+            _counterService = new CounterService();
+            _counterText.DataContext = _counterService;
+            var counterServiceCookie = CookieManager.Instance.CookieObject(_counterService);
+            _browser.Address = "http://localhost:5000/counter/" + counterServiceCookie.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CounterService.Instance.Count += 1;
+            _counterService.Count += 1;
         }
     }
 }
